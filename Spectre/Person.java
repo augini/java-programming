@@ -6,8 +6,8 @@ public class Person {
     private int height;
     private int weight;
 
-    public Person(String initialName) {
-        this.age = 20;
+    public Person(String initialName, int age) {
+        this.age = age;
         this.name = initialName;
         this.height = 0;
         this.weight = 0;
@@ -20,7 +20,9 @@ public class Person {
 
     // create string representation
     public String toString() {
-        return this.name + ", age " + this.age + " years, my body mass index is " + bodyMassIndex();
+        // return this.name + ", age " + this.age + " years, my body mass index is " +
+        // bodyMassIndex();
+        return this.name + ", age " + this.age + " years";
     }
 
     // grow old

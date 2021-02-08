@@ -1,6 +1,7 @@
 package Spectre;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Spectre {
     public static void main(String[] args) {
@@ -15,8 +16,9 @@ public class Spectre {
 
         ArrayList<Person> people = new ArrayList<>();
 
-        Person farrukh = new Person("Farrukh");
-        Person john = new Person("John");
+        Person farrukh = new Person("Farrukh", 20);
+        Person john = new Person("John", 20);
+        Person joshua = new Person("Joshua", 20);
 
         john.setHeight(234);
         john.setWeight(342);
@@ -24,10 +26,36 @@ public class Spectre {
         farrukh.setHeight(174);
         farrukh.setWeight(76);
 
+        joshua.setHeight(210);
+        joshua.setWeight(310);
+
         people.add(farrukh);
         people.add(john);
+        people.add(joshua);
 
-        System.out.println("printing people list");
-        System.out.println(people.get(0));
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Please, enter a name and age seperated by comma, empty will stop");
+            String details = scanner.nextLine();
+
+            if (details.isEmpty()) {
+                scanner.close();
+                break;
+            }
+
+            details = details.replaceAll("\\s", "");
+            String parts[] = details.split(",");
+
+            String name = parts[0];
+            int age = Integer.valueOf(parts[1]);
+
+            people.add(new Person(name, age));
+        }
+
+        // for each loop
+        for (Person person : people) {
+            System.out.println(person);
+        }
     }
 }
