@@ -1,4 +1,4 @@
-package Spectre;
+package com.wcoding.codewars;
 
 public class Student {
     private int credits;
